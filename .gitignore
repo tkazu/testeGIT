@@ -9,3 +9,5 @@ $ cat .gitignore
 
 # Ignorar todos os diretórios e arquivos em um diretório.
 build/*
+.classpath
+.settings/*
