@@ -11,3 +11,4 @@ $ cat .gitignore
 build/*
 .classpath
 .settings/*
+.project
