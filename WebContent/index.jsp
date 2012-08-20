@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-    String redirectURL = "http://google.com/";
+    String redirectURL = "faces/index.xhtml";
     response.sendRedirect(redirectURL);
 %>
 
