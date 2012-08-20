@@ -2,11 +2,15 @@ package teste;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.Search;
 
 import util.Persistencia;
 import entity.Pessoa;
@@ -19,6 +23,12 @@ public class Teste {
 		// dao.pesquisar();
 		// dao.testeNamedQuery();
 		dao.testeCriteria();
+		try {
+			dao.indexar();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// dao.indexar();
 	}
 }
@@ -48,13 +58,7 @@ class TestePersistence {
 	public void testeNamedQuery() {
 		List<Pessoa> pessoas;
 		Persistencia dao = new Persistencia();
-		//Query qr;
-		// qr = dao.getEntityManager().createNamedQuery("Pessoa.findAll");
-		// List<Pessoa> pessoas = qr.getResultList();
-		// for (Pessoa pessoa : pessoas) {
-		// System.out.println(pessoa.getId() +" - "+pessoa.getNome());
-		// }
-
+		
 		String query = "SELECT p FROM Pessoa p";
 		TypedQuery<Pessoa> tqr = dao.getEntityManager().createQuery(query,
 				Pessoa.class);
@@ -93,17 +97,11 @@ class TestePersistence {
 
 	}
 
-	public void indexar() {
-		// Persistence dao = new Persistence();
-		// EntityManager manager = dao.getEntityManager();
-		// FullTextEntityManager fulltext =
-		// Search.getFullTextEntityManager(manager);
-		// try {
-		// fulltext.createIndexer().startAndWait();
-		// } catch (InterruptedException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+	public void indexar() throws InterruptedException {
+		Persistencia dao = new Persistencia();
+		EntityManager manager = dao.getEntityManager();
+		FullTextEntityManager ftm = Search.getFullTextEntityManager(manager);
+		ftm.createIndexer().startAndWait();
 	}
 
 	public void validar() {

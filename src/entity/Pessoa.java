@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-import com.sun.istack.internal.NotNull;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
 
 
 @Entity
@@ -19,6 +20,7 @@ import com.sun.istack.internal.NotNull;
 	@NamedQuery(name="Pessoa.count", query="SELECT COUNT(p) FROM Pessoa p"),
 	@NamedQuery(name="Pessoa.findById", query="SELECT p FROM Pessoa p WHERE p.id = :id")
 })
+@Indexed
 public class Pessoa {
 	/*
 	 * @Column() length = Limita a quantidade de caracteres de uma string
@@ -31,9 +33,9 @@ public class Pessoa {
 	@Id
 	@GeneratedValue
 	private long id;
-	@NotNull
-	private String nome;
 
+	@Field
+	private String nome;
 	
 	@ElementCollection
 	private List<String> telefones = new ArrayList<String>();

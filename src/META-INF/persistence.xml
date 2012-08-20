@@ -5,7 +5,7 @@
 	<persistence-unit name="testePU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
-		<property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider"/>
+			<property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" />
 			<property name="c3p0.idle_test_period" value="3000" />
 			<property name="c3p0.min_size" value="5" />
 			<property name="c3p0.max_size" value="20" />
@@ -20,11 +20,9 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			
-			<!-- config hibernate search -->
-				<property name="hibernate.search.default.directory_provider" value="filesystem"/>
-				<property name="hibernate.search.default.indexBase" value="/k19/indexes"/>
-			<!-- fim hibernate search -->
+
+			<property name="hibernate.search.default.directory_provider" value="filesystem" />
+			<property name="hibernate.search.default.indexBase" value="/k19/indexes" />
 		</properties>
 	</persistence-unit>
 </persistence>
