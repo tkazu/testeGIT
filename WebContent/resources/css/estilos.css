@@ -1,0 +1,21 @@
+.tamanho {
+	width: 500px;
+	height: 500px;
+	padding-left: 50px;
+	text-align: justify;
+	font-style: italic;
+}
+
+.cormsg {
+	color: red;
+}
+
+.distancia {
+	padding-left: 50px;
+}
+
+.ui-icon-barca {
+	background: url(/resources/images/bmw.jpg) no-repeat;
+	height: 16px;
+	width: 16px;
+}
