@@ -1,2 +1,5 @@
 # Ignorar todos os diretórios e arquivos
 build/
+.classpath
+.settings/
+.project
