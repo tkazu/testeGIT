@@ -1,4 +1,4 @@
 testeGIT
 ========
-
-jsf2.0 com hibernate 3
+teste
+jsf2.0 com hibernate 3 
