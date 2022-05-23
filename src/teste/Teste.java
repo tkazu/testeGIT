@@ -108,5 +108,5 @@ class TestePersistence {
 		Persistencia dao = new Persistencia();
 		Pessoa p = new Pessoa();
 	}
-	//outra linha
+	//outra linha teste
 }
